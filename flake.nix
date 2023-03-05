@@ -7,15 +7,10 @@
 
   outputs = inputs @ {flake-parts, ...}:
     flake-parts.lib.mkFlake {inherit inputs;} {
-      imports = [];
+      imports = [
+        ./packages/default.nix
+      ];
 
       systems = ["x86_64-linux" "aarch64-linux"];
-      perSystem = {
-        lib,
-        pkgs,
-        ...
-      }: {
-        packages = lib.mapAttrs' (name: _: lib.nameValuePair name (pkgs.callPackage ./packages/${name} {})) (lib.filterAttrs (_: type: type == "directory") (builtins.readDir ./packages));
-      };
     };
 }

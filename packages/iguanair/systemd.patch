@@ -1,0 +1,24 @@
+diff --git a/software/usb_ir/CMakeLists.txt b/software/usb_ir/CMakeLists.txt
+index 7f377eb..31cd5a0 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -291,17 +291,11 @@ Else()
+             DESTINATION ${ETC_PARENT})
+   Else()
+     If(UDEV_FOUND)
+-      install(FILES files/systemd/lib/udev/rules.d/80-iguanaIR.rules
+-              DESTINATION ${UDEVDIR}/rules.d)
++      message(STATUS "No udev files installed in NixOS.")
+     EndIf()
+
+     If(SYSTEMD_FOUND)
+-      install(FILES files/systemd/lib/systemd/system/iguanaIR.service
+-              DESTINATION ${SYSTEMD_UNITDIR})
+-      install(FILES files/systemd/usr/lib/tmpfiles.d/iguanair.conf
+-              DESTINATION ${TMPFILESDIR})
+-      install(PROGRAMS files/systemd/usr/bin/iguanaIR-rescan
+-              DESTINATION bin)
++      message(STATUS "No systemd files installed in NixOS.")
+     ElseIf("${CMAKE_SYSTEM_NAME}" STREQUAL "Darwin")
+       message(STATUS "No initscript or iguanaIR-rescan installed in OS X.")
+     Else()
