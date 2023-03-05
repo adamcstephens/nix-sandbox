@@ -11,17 +11,11 @@
 
       systems = ["x86_64-linux" "aarch64-linux"];
       perSystem = {
-        config,
-        self',
-        inputs',
+        lib,
         pkgs,
-        system,
         ...
       }: {
-        packages = {
-          airsane = pkgs.callPackage ./packages/airsane {};
-          scanservjs = pkgs.callPackage ./packages/scanservjs {};
-        };
+        packages = lib.mapAttrs' (name: _: lib.nameValuePair name (pkgs.callPackage ./packages/${name} {})) (lib.filterAttrs (_: type: type == "directory") (builtins.readDir ./packages));
       };
     };
 }
