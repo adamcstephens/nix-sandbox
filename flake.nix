@@ -8,7 +8,8 @@
   outputs = inputs @ {flake-parts, ...}:
     flake-parts.lib.mkFlake {inherit inputs;} {
       imports = [
-        ./packages/default.nix
+        ./nixosModules
+        ./packages
       ];
 
       systems = ["x86_64-linux" "aarch64-linux"];
