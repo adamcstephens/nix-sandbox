@@ -1,4 +1,14 @@
-{perSystem, ...}: {
+{
+  perSystem,
+  withSystem,
+  ...
+}: {
+  flake.packages.aarch64-darwin = withSystem "aarch64-darwin" ({pkgs, ...}: {
+    m1ddc = pkgs.darwin.apple_sdk_11_0.callPackage ./m1ddc {
+      inherit (pkgs.darwin.apple_sdk_11_0.frameworks) Foundation IOKit;
+    };
+  });
+
   perSystem = {
     lib,
     pkgs,
@@ -26,9 +36,6 @@
       iguanair = pkgs.callPackage ./iguanair {};
       lirc-drv-iguanair = pkgs.callPackage ./lirc-drv-iguanair {inherit iguanair;};
 
-      m1ddc = pkgs.darwin.apple_sdk_11_0.callPackage ./m1ddc {
-        inherit (pkgs.darwin.apple_sdk_11_0.frameworks) Foundation IOKit;
-      };
       rush-parallel = pkgs.callPackage ./rush-parallel {};
       surface-dial = pkgs.callPackage ./surface-dial {};
       xautocfg = pkgs.callPackage ./xautocfg {};
