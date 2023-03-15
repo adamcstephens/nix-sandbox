@@ -36,6 +36,8 @@
       iguanair = pkgs.callPackage ./iguanair {};
       lirc-drv-iguanair = pkgs.callPackage ./lirc-drv-iguanair {inherit iguanair;};
 
+      mopidy-qobuz-hires = pkgs.callPackage ./mopidy-qobuz-hires {};
+
       rush-parallel = pkgs.callPackage ./rush-parallel {};
       surface-dial = pkgs.callPackage ./surface-dial {};
       xautocfg = pkgs.callPackage ./xautocfg {};
