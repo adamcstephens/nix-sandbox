@@ -1,10 +1,11 @@
 {
   lib,
   fetchFromGitHub,
-  stdenv,
+  gcc12Stdenv,
   xorg,
 }:
-stdenv.mkDerivation rec {
+# needs higher gcc for aarch64 until https://github.com/NixOS/nixpkgs/issues/108305
+gcc12Stdenv.mkDerivation rec {
   name = "xautocfg";
   version = "1.1";
 
