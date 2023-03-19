@@ -40,6 +40,8 @@
 
       rush-parallel = pkgs.callPackage ./rush-parallel {};
       surface-dial = pkgs.callPackage ./surface-dial {};
+
+      trippy = pkgs.callPackage ./trippy {};
       xautocfg = pkgs.callPackage ./xautocfg {};
       xmos_dfu = pkgs.callPackage ./xmos_dfu {};
     };
