@@ -27,6 +27,8 @@
 
       airsane = pkgs.callPackage ./airsane {};
 
+      consrv = pkgs.callPackage ./consrv {};
+
       # ble2mqtt = pkgs.callPackage ./ble2mqtt {
       #   buildPythonApplication = pkgs.python3Packages.buildPythonApplication;
       #   aio-mqtt-mod = aio-mqtt-mod;
