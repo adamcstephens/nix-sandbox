@@ -25,6 +25,9 @@
       #   pytest-mypy = pkgs.python3Packages.pytest-mypy;
       # };
 
+      firstdep = pkgs.callPackage ./firstdep {};
+      secondapp = pkgs.callPackage ./secondapp {inherit firstdep;};
+
       airsane = pkgs.callPackage ./airsane {};
 
       consrv = pkgs.callPackage ./consrv {};
