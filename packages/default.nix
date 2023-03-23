@@ -40,6 +40,8 @@
 
       mopidy-qobuz-hires = pkgs.callPackage ./mopidy-qobuz-hires {};
 
+      ntfy-alertmanager = pkgs.callPackage ./ntfy-alertmanager {};
+
       rush-parallel = pkgs.callPackage ./rush-parallel {};
       surface-dial = pkgs.callPackage ./surface-dial {};
 
