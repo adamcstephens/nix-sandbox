@@ -51,6 +51,7 @@
       #   });
       # };
 
+      mdns-reflector = pkgs.callPackage ./mdns-reflector {};
       mopidy-qobuz-hires = pkgs.callPackage ./mopidy-qobuz-hires {};
 
       # ERROR: No matching distribution found for pick==1.6.0
