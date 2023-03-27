@@ -26,6 +26,8 @@
 
       consrv = pkgs.callPackage ./consrv {};
 
+      cups-brother-hll2370dw = pkgs.callPackage ./cups-brother-hll2370dw {};
+
       # needs aio-mqtt-mod
       # ble2mqtt = pkgs.callPackage ./ble2mqtt {
       #   buildPythonApplication = pkgs.python3Packages.buildPythonApplication;
