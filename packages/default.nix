@@ -1,8 +1,4 @@
-{
-  perSystem,
-  withSystem,
-  ...
-}: {
+{withSystem, ...}: {
   flake.packages.aarch64-darwin = withSystem "aarch64-darwin" ({pkgs, ...}: {
     m1ddc = pkgs.darwin.apple_sdk_11_0.callPackage ./m1ddc {
       inherit (pkgs.darwin.apple_sdk_11_0.frameworks) Foundation IOKit;
@@ -15,6 +11,7 @@
     ...
   }: {
     packages = rec {
+      # pytest-flake8 broken
       # aio-mqtt-mod = pkgs.callPackage ./aio-mqtt-mod {
       #   buildPythonPackage = pkgs.python3Packages.buildPythonPackage;
       #   fetchPypi = pkgs.python3Packages.fetchPypi;
@@ -29,6 +26,7 @@
 
       consrv = pkgs.callPackage ./consrv {};
 
+      # needs aio-mqtt-mod
       # ble2mqtt = pkgs.callPackage ./ble2mqtt {
       #   buildPythonApplication = pkgs.python3Packages.buildPythonApplication;
       #   aio-mqtt-mod = aio-mqtt-mod;
@@ -38,7 +36,25 @@
       iguanair = pkgs.callPackage ./iguanair {};
       lirc-drv-iguanair = pkgs.callPackage ./lirc-drv-iguanair {inherit iguanair;};
 
+      # deps still not working
+      # json-tui = pkgs.callPackage ./json-tui {
+      #   ftxui = pkgs.ftxui.overrideAttrs (_: rec {
+      #     version = "4.0.0";
+      #     src = pkgs.fetchFromGitHub {
+      #       owner = "ArthurSonzogni";
+      #       repo = "ftxui";
+      #       rev = "v${version}";
+      #       sha256 = "sha256-3kAhHDUwzwdvHc8JZAcA14tGqa6w69qrN1JXhSxNBQY=";
+      #     };
+
+      #     patches = [];
+      #   });
+      # };
+
       mopidy-qobuz-hires = pkgs.callPackage ./mopidy-qobuz-hires {};
+
+      # ERROR: No matching distribution found for pick==1.6.0
+      # qobuz-dl = pkgs.callPackage ./qobuz-dl {};
 
       rush-parallel = pkgs.callPackage ./rush-parallel {};
       surface-dial = pkgs.callPackage ./surface-dial {};
