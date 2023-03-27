@@ -5,6 +5,10 @@
     };
   });
 
+  flake.packages.x86_64-linux = withSystem "x86_64-linux" ({pkgs, ...}: {
+    cups-brother-hll2370dw = pkgs.callPackage ./cups-brother-hll2370dw {};
+  });
+
   perSystem = {
     lib,
     pkgs,
@@ -25,8 +29,6 @@
       airsane = pkgs.callPackage ./airsane {};
 
       consrv = pkgs.callPackage ./consrv {};
-
-      cups-brother-hll2370dw = pkgs.callPackage ./cups-brother-hll2370dw {};
 
       # needs aio-mqtt-mod
       # ble2mqtt = pkgs.callPackage ./ble2mqtt {
