@@ -29,6 +29,11 @@ in {
         type = lib.types.listOf lib.types.str;
         description = "Interfaces to reflect on";
       };
+
+      logLevel = lib.mkOption {
+        type = lib.types.enum ["debug" "info" "warning" "error"];
+        default = "warning";
+      };
     };
   };
 
@@ -40,7 +45,7 @@ in {
       serviceConfig = {
         User = "mdns-reflector";
         DynamicUser = "yes";
-        ExecStart = "${cfg.package}/bin/mdns-reflector -fnl info ${interfaces}";
+        ExecStart = "${cfg.package}/bin/mdns-reflector -fnl ${cfg.logLevel} ${interfaces}";
         RuntimeDirectory = "mdns-reflector";
       };
     };
