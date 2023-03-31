@@ -62,6 +62,8 @@
       # qobuz-dl = pkgs.callPackage ./qobuz-dl {};
 
       rush-parallel = pkgs.callPackage ./rush-parallel {};
+      slimserver = pkgs.callPackage ./slimserver {};
+
       surface-dial = pkgs.callPackage ./surface-dial {};
 
       trippy = pkgs.callPackage ./trippy {};
