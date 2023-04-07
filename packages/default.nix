@@ -25,6 +25,9 @@
       #   pytest-flake8 = pkgs.python3Packages.pytest-flake8;
       #   pytest-mypy = pkgs.python3Packages.pytest-mypy;
       # };
+      age-plugin-yubikey = pkgs.callPackage ./age-plugin-yubikey {
+        inherit (pkgs.darwin.apple_sdk.frameworks) Foundation PCSC;
+      };
 
       airsane = pkgs.callPackage ./airsane {};
 
