@@ -31,6 +31,7 @@
 
       airsane = pkgs.callPackage ./airsane {};
 
+      cljfmt = pkgs.callPackage ./cljfmt {};
       consrv = pkgs.callPackage ./consrv {};
 
       # needs aio-mqtt-mod
