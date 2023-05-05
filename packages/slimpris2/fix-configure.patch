@@ -1,0 +1,65 @@
+diff --git a/Makefile.am b/Makefile.am
+index ac10051..4317704 100644
+--- a/Makefile.am
++++ b/Makefile.am
+@@ -4,10 +4,6 @@ dist_doc_DATA = README.md COPYING AUTHORS
+ 
+ EXTRA_DIST = autogen.sh
+ 
+-DISTCHECK_CONFIGURE_FLAGS = \
+-        --with-systemduserpresetdir=$$dc_install_base/$(systemduserpresetdir) \
+-        --with-systemduserunitdir=$$dc_install_base/$(systemduserunitdir)
+-
+ dist-hook:
+ 	rm -rf `find $(distdir) -name *~`
+ 
+diff --git a/configure.ac b/configure.ac
+index 3a4187b..f4227c4 100644
+--- a/configure.ac
++++ b/configure.ac
+@@ -1,29 +1,17 @@
+-AC_INIT(slimpris2, 3.0.0)
++AC_INIT(slimpris2, 3.0.1)
+ AM_INIT_AUTOMAKE()
+ AM_PATH_PYTHON([3.6])
+ GETTEXT_PACKAGE=slimpris2
+ AC_SUBST(GETTEXT_PACKAGE)
+ AC_DEFINE_UNQUOTED(GETTEXT_PACKAGE, "$GETTEXT_PACKAGE",
+     [The prefix for our gettext translation domains.])
+-IT_PROG_INTLTOOL(0.26)
+ 
+ PKG_PROG_PKG_CONFIG
+-AC_ARG_WITH([systemduserpresetdir],
+-        AS_HELP_STRING([--with-systemduserpresetdir=DIR], [Directory for systemd preset files]),
+-        [], [with_systemduserpresetdir=$($PKG_CONFIG --variable=systemduserpresetdir systemd)])
+-AC_ARG_WITH([systemduserunitdir],
+-        AS_HELP_STRING([--with-systemduserunitdir=DIR], [Directory for systemd service files]),
+-        [], [with_systemduserunitdir=$($PKG_CONFIG --variable=systemduserunitdir systemd)])
+-AC_SUBST([systemduserpresetdir], [$with_systemduserpresetdir])
+-AC_SUBST([systemduserunitdir], [$with_systemduserunitdir])
+-AM_CONDITIONAL(HAVE_SYSTEMD, [test -n "$with_systemduserpresetdir"])
+-AM_CONDITIONAL(HAVE_SYSTEMD, [test -n "$with_systemduserunitdir"])
+ 
+ AC_OUTPUT([
+ Makefile
+ doc/Makefile
+ src/Makefile
+-po/Makefile.in
+ ])
+ 
+ dnl Warn user sysconfdir is not /etc, if necessary.
+diff --git a/src/Makefile.am b/src/Makefile.am
+index a171a9d..8a5c9c9 100644
+--- a/src/Makefile.am
++++ b/src/Makefile.am
+@@ -6,10 +6,6 @@ dist_desktop_DATA = io.github.mavit.slimpris2.desktop
+ dist_doc_DATA = slimpris2.conf
+ nodist_dbus_DATA = org.mpris.MediaPlayer2.slimpris2.service
+ 
+-if HAVE_SYSTEMD
+-nodist_systemduserunit_DATA = slimpris2.service
+-systemduserpreset_DATA = 80-slimpris2.preset
+-endif
+ 
+ EXTRA_DIST = org.mpris.MediaPlayer2.slimpris2.service.in slimpris2.service.in slimpris2.in
+ CLEANFILES = org.mpris.MediaPlayer2.slimpris2.service slimpris2.service slimpris2.py slimpris2
