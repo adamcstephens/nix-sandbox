@@ -59,6 +59,7 @@
       #   });
       # };
 
+      maskedemail-cli = pkgs.callPackage ./maskedemail-cli {};
       mdns-reflector = pkgs.callPackage ./mdns-reflector {};
       mopidy-qobuz-hires = pkgs.callPackage ./mopidy-qobuz-hires {};
 
