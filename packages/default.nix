@@ -66,6 +66,8 @@
       # ERROR: No matching distribution found for pick==1.6.0
       # qobuz-dl = pkgs.callPackage ./qobuz-dl {};
 
+      octodns = pkgs.callPackage ./octodns {};
+
       rush-parallel = pkgs.callPackage ./rush-parallel {};
       slimserver = pkgs.callPackage ./slimserver {};
 
