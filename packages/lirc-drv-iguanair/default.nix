@@ -9,13 +9,13 @@
 }:
 stdenv.mkDerivation {
   pname = "lirc-drv-iguanair";
-  version = "1.2.0";
+  version = "1.2.1";
 
   src = fetchFromGitHub {
     owner = "iguanaworks";
     repo = "iguanair";
-    rev = "c6284e5c07993db7adfa2729b7a3503224301572";
-    sha256 = "sha256-43OaTMVgoC3bcS7eiuHEvFlO+HlYVxXzhbNujpOqji4=";
+    rev = "c8b21bc652ab104db1269a140a92584a9cef3bc1";
+    sha256 = "sha256-AUqbvetzunHsV40w/IeutkXI3tkjezH0oqxylgka9Ww=";
   };
 
   sourceRoot = "source/software/lirc-drv-iguanair";
