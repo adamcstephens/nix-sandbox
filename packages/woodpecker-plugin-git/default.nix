@@ -4,10 +4,8 @@
   fetchFromGitHub,
   git-lfs,
   git,
-  gitFull,
   makeWrapper,
   openssh,
-  symlinkJoin,
 }:
 buildGoModule rec {
   pname = "woodpecker-plugin-git";
@@ -16,8 +14,8 @@ buildGoModule rec {
   src = fetchFromGitHub {
     owner = "woodpecker-ci";
     repo = "plugin-git";
-    rev = "388c4cd007387656ac016e7e8d32f4a92940eb9f";
-    hash = "sha256-FmThS1h8gaJ3K4OP/gZ/VYhAOL10eK5XSyVOelvE5Vk=";
+    rev = "31b0c3d3edafe7283b6482e9dc38686e0e9843d1";
+    hash = "sha256-aojctYpHCgfG+32Qh8rRGiOSLz9BR8imQqA8FmzvUzc=";
   };
 
   vendorHash = "sha256-63Ly/9yIJu2K/DwOfGs9pYU3fokbs2senZkl3MJ1UIY=";
