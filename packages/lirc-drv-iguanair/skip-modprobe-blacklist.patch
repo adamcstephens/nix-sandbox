@@ -1,0 +1,21 @@
+diff --git a/software/lirc-drv-iguanair/Makefile b/software/lirc-drv-iguanair/Makefile
+index 7636b94..11f5284 100755
+--- a/Makefile
++++ b/Makefile
+@@ -30,7 +30,6 @@ endif
+
+ # check with leamas how -DHAVE_KERNEL_LIRC_H should be handled
+ CFLAGS          += -I../usb_ir ${KERNLIRC}
+-MODPROBE_CONF   = 60-blacklist-kernel-iguanair.conf
+
+
+ CFLAGS          += $(shell pkg-config --cflags lirc-driver)
+@@ -48,8 +47,6 @@ install: $(driver).so
+ 	install -D $< $(DESTDIR)$(PLUGINDIR)/$<
+ 	install -Dm 644 $(driver).conf $(DESTDIR)$(CONFIGDIR)/$(driver).conf
+ 	install -Dm 644 $(driver).html $(DESTDIR)$(PLUGINDOCS)/$(driver).html
+-	install -Dm 644 $(MODPROBE_CONF) \
+-	    $(DESTDIR)/etc/modprobe.d/$(MODPROBE_CONF)
+
+ clean:
+ 	rm -f *.o *.so

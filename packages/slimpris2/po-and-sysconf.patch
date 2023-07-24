@@ -1,0 +1,30 @@
+diff --git a/src/slimpris2.py.in b/src/slimpris2.py.in
+index a6594ec..df43881 100644
+--- a/src/slimpris2.py.in
++++ b/src/slimpris2.py.in
+@@ -1,4 +1,4 @@
+-#!@PYTHON@
++#!/usr/bin/env python
+ #
+ #    This program is free software: you can redistribute it and/or modify
+ #    it under the terms of the GNU General Public License as published by
+@@ -54,10 +54,6 @@
+ app_name = "slimpris2"
+ app_id = f"io.github.mavit.{app_name}"
+ 
+-gettext.bindtextdomain(app_name, '@datadir@/locale')
+-gettext.textdomain(app_name)
+-_ = gettext.gettext
+-
+ params = {
+     'scheme': 'http',
+     'host': None,
+@@ -1426,7 +1422,7 @@ def usage(params):
+         f'{dir}/slimpris2.conf'
+         for dir in xdg.BaseDirectory.load_config_paths(app_name)
+     ]
+-    config_filenames.append(f'@sysconfdir@/{app_name}.conf')
++    config_filenames.append(f'/etc/{app_name}.conf')
+     config_filenames.reverse()
+     config.read(config_filenames)
+ 
