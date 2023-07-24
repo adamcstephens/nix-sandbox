@@ -33,6 +33,7 @@
 
       cljfmt = pkgs.callPackage ./cljfmt {};
       consrv = pkgs.callPackage ./consrv {};
+      fork-cleaner = pkgs.callPackage ./fork-cleaner {};
 
       # needs aio-mqtt-mod
       # ble2mqtt = pkgs.callPackage ./ble2mqtt {
