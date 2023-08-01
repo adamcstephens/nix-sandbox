@@ -33,6 +33,9 @@
 
       cljfmt = pkgs.callPackage ./cljfmt {};
       consrv = pkgs.callPackage ./consrv {};
+      firefox-profile-switcher-connector = pkgs.darwin.apple_sdk_11_0.callPackage ./firefox-profile-switcher-connector {
+        inherit (pkgs.darwin.apple_sdk_11_0.frameworks) Security;
+      };
       fork-cleaner = pkgs.callPackage ./fork-cleaner {};
 
       # needs aio-mqtt-mod
