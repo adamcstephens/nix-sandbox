@@ -64,6 +64,7 @@
       # };
 
       maskedemail-cli = pkgs.callPackage ./maskedemail-cli {};
+      matrix-alertmanager = pkgs.callPackage ./matrix-alertmanager {};
       mdns-reflector = pkgs.callPackage ./mdns-reflector {};
       mopidy-qobuz-hires = pkgs.callPackage ./mopidy-qobuz-hires {};
 
