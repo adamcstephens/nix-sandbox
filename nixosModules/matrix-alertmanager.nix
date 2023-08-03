@@ -33,8 +33,14 @@ in {
       after = ["network.target"];
       wantedBy = ["multi-user.target"];
 
-      environment = cfg.environment;
-      path = [pkgs.nodejs];
+      environment =
+        {
+          NODE_CONFIG_DIR = "/var/lib/matrix-alertmanager/config";
+          NODE_ENV = "production";
+          NPM_CONFIG_CACHE = "/var/cache/matrix-alertmanager/.npm";
+        }
+        // cfg.environment;
+      path = [pkgs.bash pkgs.nodejs];
       script = ''
         npm start
       '';
@@ -46,6 +52,8 @@ in {
         TimeoutSec = 60;
         WorkingDirectory = "${cfg.package}/lib/node_modules/matrix-alertmanager";
         DynamicUser = true;
+        StateDirectory = "matrix-alertmanager";
+        CacheDirectory = "matrix-alertmanager";
         EnvironmentFile = lib.optional (cfg.environmentFile != null) cfg.environmentFile;
       };
     };
