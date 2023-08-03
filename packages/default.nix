@@ -76,6 +76,7 @@
       surface-dial = pkgs.callPackage ./surface-dial {};
 
       trippy = pkgs.callPackage ./trippy {};
+      tfproviderdocs = pkgs.callPackage ./tfproviderdocs {};
       woodpecker-plugin-git = pkgs.callPackage ./woodpecker-plugin-git {};
       xautocfg = pkgs.callPackage ./xautocfg {};
       xmos_dfu = pkgs.callPackage ./xmos_dfu {};
