@@ -33,6 +33,7 @@
         inherit (pkgs.darwin.apple_sdk_11_0.frameworks) Security;
       };
       fork-cleaner = pkgs.callPackage ./fork-cleaner {};
+      gickup = pkgs.callPackage ./gickup {};
 
       # needs aio-mqtt-mod
       # ble2mqtt = pkgs.callPackage ./ble2mqtt {
