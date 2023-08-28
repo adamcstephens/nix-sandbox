@@ -60,6 +60,8 @@
       # };
 
       maskedemail-cli = pkgs.callPackage ./maskedemail-cli {};
+      mautrix-imessage = pkgs.callPackage ./mautrix-imessage {};
+      mautrix-wsproxy = pkgs.callPackage ./mautrix-wsproxy {};
       mdns-reflector = pkgs.callPackage ./mdns-reflector {};
       mopidy-qobuz-hires = pkgs.callPackage ./mopidy-qobuz-hires {};
 
