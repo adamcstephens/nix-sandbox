@@ -25,19 +25,14 @@
       #   pytest-flake8 = pkgs.python3Packages.pytest-flake8;
       #   pytest-mypy = pkgs.python3Packages.pytest-mypy;
       # };
-      age-plugin-yubikey = pkgs.callPackage ./age-plugin-yubikey {
-        inherit (pkgs.darwin.apple_sdk.frameworks) Foundation PCSC;
-      };
 
       airsane = pkgs.callPackage ./airsane {};
 
-      cljfmt = pkgs.callPackage ./cljfmt {};
       consrv = pkgs.callPackage ./consrv {};
       firefox-profile-switcher-connector = pkgs.darwin.apple_sdk_11_0.callPackage ./firefox-profile-switcher-connector {
         inherit (pkgs.darwin.apple_sdk_11_0.frameworks) Security;
       };
       fork-cleaner = pkgs.callPackage ./fork-cleaner {};
-      gickup = pkgs.callPackage ./gickup {};
 
       # needs aio-mqtt-mod
       # ble2mqtt = pkgs.callPackage ./ble2mqtt {
@@ -65,7 +60,6 @@
       # };
 
       maskedemail-cli = pkgs.callPackage ./maskedemail-cli {};
-      matrix-alertmanager = pkgs.callPackage ./matrix-alertmanager {};
       mdns-reflector = pkgs.callPackage ./mdns-reflector {};
       mopidy-qobuz-hires = pkgs.callPackage ./mopidy-qobuz-hires {};
 
@@ -73,13 +67,10 @@
       # qobuz-dl = pkgs.callPackage ./qobuz-dl {};
 
       rush-parallel = pkgs.callPackage ./rush-parallel {};
-      slimserver = pkgs.callPackage ./slimserver {};
 
       surface-dial = pkgs.callPackage ./surface-dial {};
 
       trippy = pkgs.callPackage ./trippy {};
-      tfproviderdocs = pkgs.callPackage ./tfproviderdocs {};
-      woodpecker-plugin-git = pkgs.callPackage ./woodpecker-plugin-git {};
       xautocfg = pkgs.callPackage ./xautocfg {};
       xmos_dfu = pkgs.callPackage ./xmos_dfu {};
     };
