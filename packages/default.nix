@@ -74,6 +74,13 @@
       surface-dial = pkgs.callPackage ./surface-dial {};
 
       trippy = pkgs.callPackage ./trippy {};
+      upplay = pkgs.callPackage ./upplay {
+        inherit (pkgs.qt6) qtbase qmake qtwebengine wrapQtAppsHook;
+
+        libupnpp = pkgs.callPackage ./libupnpp {
+          npupnp = pkgs.callPackage ./npupnp {};
+        };
+      };
       xautocfg = pkgs.callPackage ./xautocfg {};
       xmos_dfu = pkgs.callPackage ./xmos_dfu {};
     };

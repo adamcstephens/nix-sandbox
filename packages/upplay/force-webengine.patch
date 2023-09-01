@@ -1,0 +1,17 @@
+diff --git a/upplay.pro b/upplay.pro
+index b7e916f..484a2e3 100644
+--- a/upplay.pro
++++ b/upplay.pro
+@@ -5,11 +5,7 @@ TARGET          = upplay
+ VERSION = 1.6.6
+ COPYRDATES = 2011-2021
+ 
+-greaterThan(QT_MAJOR_VERSION, 5) {
+-  WEBPLATFORM = webengine
+-} else {
+-  WEBPLATFORM = webkit
+-}
++WEBPLATFORM = webengine
+ windows {
+   WEBPLATFORM = webengine
+ }
