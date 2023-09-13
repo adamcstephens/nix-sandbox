@@ -30,7 +30,7 @@
       #   pytest-mypy = pkgs.python3Packages.pytest-mypy;
       # };
 
-      airsane = pkgs.callPackage ./airsane {};
+      # airsane = pkgs.callPackage ./airsane {};
 
       consrv = pkgs.callPackage ./consrv {};
       firefox-profile-switcher-connector = pkgs.darwin.apple_sdk_11_0.callPackage ./firefox-profile-switcher-connector {
@@ -66,25 +66,25 @@
 
       maskedemail-cli = pkgs.callPackage ./maskedemail-cli {};
       mdns-reflector = pkgs.callPackage ./mdns-reflector {};
-      mopidy-qobuz-hires = pkgs.callPackage ./mopidy-qobuz-hires {};
+      # mopidy-qobuz-hires = pkgs.callPackage ./mopidy-qobuz-hires {};
 
       # ERROR: No matching distribution found for pick==1.6.0
       # qobuz-dl = pkgs.callPackage ./qobuz-dl {};
 
-      rush-parallel = pkgs.callPackage ./rush-parallel {};
+      # rush-parallel = pkgs.callPackage ./rush-parallel {};
 
-      surface-dial = pkgs.callPackage ./surface-dial {};
+      # surface-dial = pkgs.callPackage ./surface-dial {};
 
       trippy = pkgs.callPackage ./trippy {};
-      upplay = pkgs.callPackage ./upplay {
-        inherit (pkgs.qt6) qtbase qmake qtwebengine wrapQtAppsHook;
+      # upplay = pkgs.callPackage ./upplay {
+      #   inherit (pkgs.qt6) qtbase qmake qtwebengine wrapQtAppsHook;
 
-        libupnpp = pkgs.callPackage ./libupnpp {
-          npupnp = pkgs.callPackage ./npupnp {};
-        };
-      };
-      xautocfg = pkgs.callPackage ./xautocfg {};
-      xmos_dfu = pkgs.callPackage ./xmos_dfu {};
+      #   libupnpp = pkgs.callPackage ./libupnpp {
+      #     npupnp = pkgs.callPackage ./npupnp {};
+      #   };
+      # };
+      # xautocfg = pkgs.callPackage ./xautocfg {};
+      # xmos_dfu = pkgs.callPackage ./xmos_dfu {};
     };
   };
 }
