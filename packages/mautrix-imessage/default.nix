@@ -1,9 +1,11 @@
-{ lib
-, buildGoModule
-, fetchFromGitHub
+{
+  lib,
+  buildGoModule,
+  fetchFromGitHub,
+  olm,
+  Contacts,
 }:
-
-buildGoModule rec {
+buildGoModule {
   pname = "mautrix-imessage";
   version = "unstable-2023-08-14";
 
@@ -16,12 +18,18 @@ buildGoModule rec {
 
   vendorHash = "sha256-TOKQZ4daEwXp5olLXHyOxoFItT26Xaa38P9t6c99M8I=";
 
-  ldflags = [ "-s" "-w" ];
+  ldflags = ["-s" "-w"];
+  CGO_ENABLED = 1;
+
+  buildInputs = [
+    olm
+    Contacts
+  ];
 
   meta = with lib; {
     description = "A Matrix-iMessage puppeting bridge";
     homepage = "https://github.com/mautrix/imessage";
     license = licenses.agpl3Only;
-    maintainers = with maintainers; [ ];
+    maintainers = with maintainers; [adamcstephens];
   };
 }

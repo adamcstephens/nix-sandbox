@@ -3,6 +3,10 @@
     m1ddc = pkgs.darwin.apple_sdk_11_0.callPackage ./m1ddc {
       inherit (pkgs.darwin.apple_sdk_11_0.frameworks) Foundation IOKit;
     };
+    mautrix-imessage = pkgs.darwin.apple_sdk_11_0.callPackage ./mautrix-imessage {
+      inherit (pkgs.darwin.apple_sdk_11_0.frameworks) Contacts;
+    };
+    mautrix-wsproxy = pkgs.darwin.apple_sdk_11_0.callPackage ./mautrix-wsproxy {};
   });
 
   flake.packages.x86_64-linux = withSystem "x86_64-linux" ({pkgs, ...}: {
@@ -61,8 +65,6 @@
       # };
 
       maskedemail-cli = pkgs.callPackage ./maskedemail-cli {};
-      mautrix-imessage = pkgs.callPackage ./mautrix-imessage {};
-      mautrix-wsproxy = pkgs.callPackage ./mautrix-wsproxy {};
       mdns-reflector = pkgs.callPackage ./mdns-reflector {};
       mopidy-qobuz-hires = pkgs.callPackage ./mopidy-qobuz-hires {};
 
