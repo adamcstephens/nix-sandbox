@@ -48,6 +48,7 @@
 
       iguanair = pkgs.callPackage ./iguanair {};
       lirc-drv-iguanair = pkgs.callPackage ./lirc-drv-iguanair {inherit iguanair;};
+      llm-ls = pkgs.callPackage ./llm-ls {};
 
       # deps still not working
       # json-tui = pkgs.callPackage ./json-tui {
