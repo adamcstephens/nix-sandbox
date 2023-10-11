@@ -75,6 +75,7 @@
       # rush-parallel = pkgs.callPackage ./rush-parallel {};
 
       # surface-dial = pkgs.callPackage ./surface-dial {};
+      rs-tftpd = pkgs.callPackage ./rs-tftpd {};
 
       trippy = pkgs.callPackage ./trippy {};
       # upplay = pkgs.callPackage ./upplay {
