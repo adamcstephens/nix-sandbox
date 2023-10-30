@@ -5,16 +5,16 @@
 }:
 rustPlatform.buildRustPackage rec {
   pname = "rs-tftpd";
-  version = "0.2.8";
+  version = "0.2.9";
 
   src = fetchFromGitHub {
     owner = "altugbakan";
     repo = "rs-tftpd";
     rev = version;
-    hash = "sha256-h8qDCbdL2nF3+faB6VPsr05j0K34hGsFSrhwfmay8MA=";
+    hash = "sha256-qybwLGbLRnwmUtOzszEW+q5Mwo9/kWP9cYVn9MLNtcs=";
   };
 
-  cargoHash = "sha256-blpX5/F8gTZaBzRor5BLcDXKTpNmPMc3vyglcB2iRZY=";
+  cargoHash = "sha256-3b/poJDA6jFk9ESk4Qd4DWNoMSyDE71cbaeVVWGhI+w=";
 
   meta = {
     description = "TFTP Server Daemon implemented in Rust";
