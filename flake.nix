@@ -29,6 +29,7 @@
         devShells.default = pkgs.mkShellNoCC {
           packages = [
             pkgs.nix-init
+            pkgs.nix-update
           ];
         };
       };
