@@ -6,5 +6,6 @@
     matrix-alertmanager = import ./matrix-alertmanager.nix;
     mdns-reflector = import ./mdns-reflector.nix;
     rs-tftpd = import ./rs-tftpd.nix;
+    ydls = import ./ydls.nix;
   };
 }

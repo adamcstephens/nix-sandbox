@@ -85,6 +85,7 @@
       # };
       # xautocfg = pkgs.callPackage ./xautocfg {};
       # xmos_dfu = pkgs.callPackage ./xmos_dfu {};
+      ydls = pkgs.callPackage ./ydls {};
     };
   };
 }
