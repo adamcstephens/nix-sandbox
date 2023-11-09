@@ -3,9 +3,10 @@
   buildGoModule,
   makeWrapper,
   fetchFromGitHub,
+  ffmpeg,
   yt-dlp,
 }:
-buildGoModule rec {
+buildGoModule {
   pname = "ydls";
   version = "unstable-2023-11-04";
 
@@ -26,7 +27,7 @@ buildGoModule rec {
   CONFIG = "/build/source/ydls.json";
 
   postInstall = ''
-    wrapProgram $out/bin/ydls --prefix PATH : ${lib.makeBinPath [yt-dlp]}
+    wrapProgram $out/bin/ydls --prefix PATH : ${lib.makeBinPath [ffmpeg yt-dlp]}
     install -D -m 0444 ydls.json $out/share/ydls/ydls.json
   '';
 
