@@ -10,6 +10,7 @@
     flake-parts.lib.mkFlake {inherit inputs;} {
       imports = [
         ./nixosModules
+        ./nixosTests
         ./packages
         ./templates
       ];
@@ -21,10 +22,10 @@
         system,
         ...
       }: {
-        _module.args.pkgs = import inputs.nixpkgs {
-          inherit system;
-          config.allowUnfree = true;
-        };
+        # _module.args.pkgs = import inputs.nixpkgs {
+        #   inherit system;
+        #   config.allowUnfree = true;
+        # };
 
         devShells.default = pkgs.mkShellNoCC {
           packages = [
