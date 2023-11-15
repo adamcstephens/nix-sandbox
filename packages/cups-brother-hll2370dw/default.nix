@@ -76,7 +76,7 @@ stdenv.mkDerivation rec {
     homepage = "http://www.brother.com/";
     description = "Brother HL-L2370DW combined print driver";
     sourceProvenance = with sourceTypes; [binaryNativeCode];
-    license = licenses.unfree;
+    # license = licenses.unfree;
     platforms = ["x86_64-linux"];
     downloadPage = "http://support.brother.com/g/b/downloadlist.aspx?c=us_ot&lang=en&prod=hll2370dw_us&os=128";
     maintainers = [maintainers.adamcstephens];
