@@ -67,7 +67,7 @@
 
       maskedemail-cli = pkgs.callPackage ./maskedemail-cli {};
       mdns-reflector = pkgs.callPackage ./mdns-reflector {};
-      # mopidy-qobuz-hires = pkgs.callPackage ./mopidy-qobuz-hires {};
+      oidc-filter = pkgs.callPackage ./oidc-filter {};
 
       # ERROR: No matching distribution found for pick==1.6.0
       # qobuz-dl = pkgs.callPackage ./qobuz-dl {};
