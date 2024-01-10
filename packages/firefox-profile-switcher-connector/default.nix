@@ -19,13 +19,13 @@ rustPlatform.buildRustPackage rec {
 
   cargoHash = "sha256-EQIBeZwF9peiwpgZNfMmjvLv8NyhvVGUjVXgkf12Wig=";
 
-  nativeBuildInputs = [cmake];
-  buildInputs = lib.optionals stdenv.isDarwin [Security];
+  nativeBuildInputs = [ cmake ];
+  buildInputs = lib.optionals stdenv.isDarwin [ Security ];
 
   meta = {
     description = "Native connector software for the 'Profile Switcher for Firefox' extension";
     homepage = "https://github.com/null-dev/firefox-profile-switcher-connector";
     license = lib.licenses.gpl3Only;
-    maintainers = with lib.maintainers; [adamcstephens];
+    maintainers = with lib.maintainers; [ adamcstephens ];
   };
 }

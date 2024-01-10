@@ -12,7 +12,10 @@ stdenv.mkDerivation rec {
   pname = "libupnpp";
   version = "0.22.4";
 
-  outputs = ["out" "dev"];
+  outputs = [
+    "out"
+    "dev"
+  ];
 
   src = fetchgit {
     url = "https://framagit.org/medoc92/libupnpp";
@@ -35,6 +38,6 @@ stdenv.mkDerivation rec {
     description = "";
     homepage = "https://framagit.org/medoc92/libupnpp";
     license = licenses.lgpl21Only;
-    maintainers = with maintainers; [];
+    maintainers = with maintainers; [ ];
   };
 }

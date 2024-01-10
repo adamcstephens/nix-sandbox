@@ -37,7 +37,7 @@ rustPlatform.buildRustPackage rec {
   buildInputs = [
     (symlinkJoin {
       name = "rust-lld";
-      paths = [rustc-wasm32.llvmPackages.lld];
+      paths = [ rustc-wasm32.llvmPackages.lld ];
       postBuild = ''
         ln -s $out/bin/lld $out/bin/rust-lld
       '';
@@ -56,7 +56,7 @@ rustPlatform.buildRustPackage rec {
     description = "A WASM plugin for Envoy supporting the Open ID Connect Authorization Flow, extending Istio's JWT functionality";
     homepage = "https://github.com/dgn/oidc-filter/tree/master";
     license = licenses.asl20;
-    maintainers = with maintainers; [];
+    maintainers = with maintainers; [ ];
     mainProgram = "oidc-filter";
   };
 }

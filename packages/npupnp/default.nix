@@ -20,7 +20,10 @@ stdenv.mkDerivation rec {
     hash = "sha256-ajs/bqfgbJdlte5ifxcc2VHpLh+ui36tr38sh+IyCrE=";
   };
 
-  outputs = ["out" "dev"];
+  outputs = [
+    "out"
+    "dev"
+  ];
 
   buildInputs = [
     curl
@@ -41,6 +44,6 @@ stdenv.mkDerivation rec {
     description = "";
     homepage = "https://framagit.org/medoc92/npupnp";
     license = licenses.bsd3;
-    maintainers = with maintainers; [];
+    maintainers = with maintainers; [ ];
   };
 }

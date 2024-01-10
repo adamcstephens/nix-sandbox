@@ -18,9 +18,7 @@ buildPythonPackage rec {
     hash = "sha256-32a8HMzUfhFOfM2KZozbLhTpOXgLmiBWUGfyfYZMNl0=";
   };
 
-  patches = [
-    ./test-deps.patch
-  ];
+  patches = [ ./test-deps.patch ];
 
   checkInputs = [
     pytest
@@ -30,15 +28,13 @@ buildPythonPackage rec {
     safety
   ];
 
-  pythonImportsCheck = [
-    "aio_mqtt"
-  ];
+  pythonImportsCheck = [ "aio_mqtt" ];
 
   meta = with lib; {
     description = "MQTT client";
     homepage = "https://github.com/devbis/aio-mqtt";
     license = licenses.asl20;
     platforms = platforms.linux;
-    maintainers = with maintainers; [adamcstephens];
+    maintainers = with maintainers; [ adamcstephens ];
   };
 }

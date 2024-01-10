@@ -21,6 +21,6 @@ rustPlatform.buildRustPackage rec {
     homepage = "https://github.com/altugbakan/rs-tftpd";
     license = lib.licenses.mit;
     mainProgram = "tftpd";
-    maintainers = with lib.maintainers; [adamcstephens];
+    maintainers = with lib.maintainers; [ adamcstephens ];
   };
 }

@@ -18,16 +18,14 @@ rustPlatform.buildRustPackage rec {
 
   cargoHash = "sha256-QRFXjnZTDI7jwJHdy/d9CYEuWB26iCp5cqlh/25nckI=";
 
-  buildInputs = lib.optionals stdenv.isDarwin [
-    darwin.apple_sdk.frameworks.CoreFoundation
-  ];
+  buildInputs = lib.optionals stdenv.isDarwin [ darwin.apple_sdk.frameworks.CoreFoundation ];
 
   meta = with lib; {
     description = "A network diagnostic tool";
     homepage = "https://github.com/fujiapple852/trippy";
     changelog = "https://github.com/fujiapple852/trippy/blob/${src.rev}/CHANGELOG.md";
     license = licenses.asl20;
-    maintainers = with maintainers; [adamcstephens];
+    maintainers = with maintainers; [ adamcstephens ];
     mainProgram = "trip";
   };
 }

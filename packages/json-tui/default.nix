@@ -23,9 +23,7 @@ stdenv.mkDerivation rec {
     substituteInPlace CMakeLists.txt --replace 'add_subdirectory' '#add_subdirectory'
   '';
 
-  nativeBuildInputs = [
-    cmake
-  ];
+  nativeBuildInputs = [ cmake ];
 
   buildInputs = [
     ftxui
@@ -38,6 +36,6 @@ stdenv.mkDerivation rec {
     homepage = "https://github.com/ArthurSonzogni/json-tui";
     changelog = "https://github.com/ArthurSonzogni/json-tui/blob/${src.rev}/CHANGELOG.md";
     license = licenses.mit;
-    maintainers = with maintainers; [];
+    maintainers = with maintainers; [ ];
   };
 }

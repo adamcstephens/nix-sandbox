@@ -3,11 +3,13 @@
   lib,
   pkgs,
   ...
-}: let
+}:
+let
   cfg = config.services.mdns-reflector;
 
   interfaces = builtins.toString cfg.interfaces;
-in {
+in
+{
   options = {
     services.mdns-reflector = {
       enable = lib.mkOption {
@@ -31,7 +33,12 @@ in {
       };
 
       logLevel = lib.mkOption {
-        type = lib.types.enum ["debug" "info" "warning" "error"];
+        type = lib.types.enum [
+          "debug"
+          "info"
+          "warning"
+          "error"
+        ];
         default = "warning";
       };
     };
@@ -40,7 +47,7 @@ in {
   config = lib.mkIf cfg.enable {
     systemd.services.mdns-reflector = {
       description = "mdns-reflector daemon";
-      wantedBy = ["multi-user.target"];
+      wantedBy = [ "multi-user.target" ];
 
       serviceConfig = {
         User = "mdns-reflector";

@@ -20,9 +20,7 @@ stdenv.mkDerivation rec {
     hash = "sha256-J6u9+3ff24sl0YXiCDyoMtwhBgugWXagS1G4lTnDBN8=";
   };
 
-  patches = [
-    ./disable-etc-write.patch
-  ];
+  patches = [ ./disable-etc-write.patch ];
 
   nativeBuildInputs = [
     cmake
@@ -40,7 +38,7 @@ stdenv.mkDerivation rec {
     homepage = "https://github.com//airsane";
     description = "";
     license = licenses.gpl3;
-    maintainers = with maintainers; [adamcstephens];
+    maintainers = with maintainers; [ adamcstephens ];
     platforms = platforms.linux;
   };
 }

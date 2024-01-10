@@ -4,11 +4,13 @@
   lib,
   pkgs,
   ...
-}: let
+}:
+let
   cfg = config.services.logiops;
-  formats = import ./format.nix {inherit lib pkgs;};
-  renderedConfig = (formats.libconfig {}).generate "logid.cfg" cfg.settings;
-in {
+  formats = import ./format.nix { inherit lib pkgs; };
+  renderedConfig = (formats.libconfig { }).generate "logid.cfg" cfg.settings;
+in
+{
   options.services.logiops = {
     enable = lib.mkEnableOption (lib.mdDoc "Logiops HID++ configuration");
 
@@ -20,8 +22,8 @@ in {
     };
 
     settings = lib.mkOption {
-      inherit (formats.libconfig {}) type;
-      default = {};
+      inherit (formats.libconfig { }) type;
+      default = { };
       example = {
         devices = [
           {
@@ -45,14 +47,14 @@ in {
                 cid = "0x53";
                 action = {
                   type = "Keypress";
-                  keys = ["KEY_FORWARD"];
+                  keys = [ "KEY_FORWARD" ];
                 };
               }
               {
                 cid = "0x56";
                 action = {
                   type = "Keypress";
-                  keys = ["KEY_BACK"];
+                  keys = [ "KEY_BACK" ];
                 };
               }
             ];
@@ -68,15 +70,15 @@ in {
   };
 
   config = lib.mkIf cfg.enable {
-    services.udev.packages = [pkgs.logitech-udev-rules];
+    services.udev.packages = [ pkgs.logitech-udev-rules ];
     environment.etc."logid.cfg".source = renderedConfig;
 
-    systemd.packages = [cfg.package];
+    systemd.packages = [ cfg.package ];
     systemd.services.logid = {
-      wantedBy = ["multi-user.target"];
-      restartTriggers = [renderedConfig];
+      wantedBy = [ "multi-user.target" ];
+      restartTriggers = [ renderedConfig ];
     };
   };
 
-  meta.maintainers = with lib.maintainers; [ckie];
+  meta.maintainers = with lib.maintainers; [ ckie ];
 }

@@ -25,9 +25,7 @@ stdenv.mkDerivation {
     iguanair
   ];
 
-  nativeBuildInputs = [
-    pkg-config
-  ];
+  nativeBuildInputs = [ pkg-config ];
 
   makeFlags = [
     "CONFIGDIR=$(out)/share/lirc/configs/"
@@ -35,7 +33,5 @@ stdenv.mkDerivation {
     "PLUGINDOCS=$(out)/share/doc/lirc/plugindocs"
   ];
 
-  patches = [
-    ./skip-modprobe-blacklist.patch
-  ];
+  patches = [ ./skip-modprobe-blacklist.patch ];
 }

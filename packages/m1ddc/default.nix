@@ -45,7 +45,7 @@ stdenv.mkDerivation rec {
     homepage = "https://github.com/waydabber/m1ddc";
     description = "Controls external displays (connected via USB-C/DisplayPort Alt Mode) using DDC/CI on M1 Macs";
     license = licenses.mit;
-    maintainers = with maintainers; [adamcstephens];
+    maintainers = with maintainers; [ adamcstephens ];
     platforms = platforms.darwin;
   };
 }

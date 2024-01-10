@@ -29,7 +29,5 @@ rustPlatform.buildRustPackage {
     libevdev
     udev
   ];
-  nativeBuildInputs = [
-    pkg-config
-  ];
+  nativeBuildInputs = [ pkg-config ];
 }

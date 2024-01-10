@@ -1,7 +1,4 @@
-{
-  lib,
-  python3Packages,
-}:
+{ lib, python3Packages }:
 python3Packages.buildPythonApplication rec {
   pname = "qobuz-dl";
   version = "0.9.9.9";
@@ -11,7 +8,11 @@ python3Packages.buildPythonApplication rec {
     hash = "sha256-oGreHuia5lvGOFBR2MoeQjUpRh7Nq95xhY5MJ5QGE7E=";
   };
 
-  buildInputs = [python3Packages.pathvalidate python3Packages.tqdm python3Packages.pick];
+  buildInputs = [
+    python3Packages.pathvalidate
+    python3Packages.tqdm
+    python3Packages.pick
+  ];
 
   doCheck = false;
   # pythonImportsCheck = ["qobuz_dl"];
@@ -20,6 +21,6 @@ python3Packages.buildPythonApplication rec {
     homepage = "https://github.com/vitiko98/qobuz-dl";
     description = "Search, explore and download Lossless and Hi-Res music from Qobuz";
     license = lib.licenses.gpl3;
-    maintainers = [maintainers.adamcstephens];
+    maintainers = [ maintainers.adamcstephens ];
   };
 }

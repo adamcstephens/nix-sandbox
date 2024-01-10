@@ -31,6 +31,6 @@ buildPythonApplication rec {
     homepage = "https://github.com/devbis/ble2mqtt";
     license = licenses.mit;
     platforms = platforms.linux;
-    maintainers = with maintainers; [adamcstephens];
+    maintainers = with maintainers; [ adamcstephens ];
   };
 }

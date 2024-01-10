@@ -3,9 +3,11 @@
   lib,
   pkgs,
   ...
-}: let
+}:
+let
   cfg = config.services.rs-tftpd;
-in {
+in
+{
   options.services.rs-tftpd = {
     enable = lib.mkEnableOption (lib.mdDoc "rs-tftpd");
 
@@ -31,14 +33,12 @@ in {
   };
 
   config = lib.mkIf cfg.enable {
-    environment.systemPackages = [
-      cfg.package
-    ];
+    environment.systemPackages = [ cfg.package ];
 
     systemd.services.rs-tftpd = {
-      after = ["network.target"];
+      after = [ "network.target" ];
       description = "rs-tftpd daemon";
-      wantedBy = ["multi-user.target"];
+      wantedBy = [ "multi-user.target" ];
 
       serviceConfig = {
         User = "rs-tftpd";

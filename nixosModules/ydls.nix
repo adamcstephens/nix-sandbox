@@ -3,13 +3,15 @@
   lib,
   pkgs,
   ...
-}: let
+}:
+let
   cfg = config.services.ydls;
-in {
+in
+{
   options.services.ydls = {
     enable = lib.mkEnableOption "ydls service";
 
-    package = lib.mkPackageOptionMD pkgs "ydls" {};
+    package = lib.mkPackageOptionMD pkgs "ydls" { };
 
     listenAddress = lib.mkOption {
       type = lib.types.str;
@@ -26,8 +28,8 @@ in {
 
   config = lib.mkIf cfg.enable {
     systemd.services.ydls = {
-      wantedBy = ["multi-user.target"];
-      after = ["network-online.target"];
+      wantedBy = [ "multi-user.target" ];
+      after = [ "network-online.target" ];
 
       serviceConfig = {
         DyanmicUser = true;

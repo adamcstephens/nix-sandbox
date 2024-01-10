@@ -17,11 +17,15 @@ python3.pkgs.buildPythonApplication rec {
     hash = "sha256-NK8p8DbK/t7DL7rtxeHVy3lk+9U0tZjEVqVDmtcVgXM=";
   };
 
-  patches = [
-    ./po-and-sysconf.patch
-  ];
+  patches = [ ./po-and-sysconf.patch ];
 
-  propagatedBuildInputs = with python3.pkgs; [dbus-python pygobject3 pyxdg simplejson six];
+  propagatedBuildInputs = with python3.pkgs; [
+    dbus-python
+    pygobject3
+    pyxdg
+    simplejson
+    six
+  ];
 
   nativeBuildInputs = [
     wrapGAppsHook
@@ -53,6 +57,6 @@ python3.pkgs.buildPythonApplication rec {
     description = "MPRIS remote control of Logitech Media Server";
     homepage = "https://github.com/mavit/slimpris2";
     license = lib.licenses.gpl3Only;
-    maintainers = with lib.maintainers; [adamcstephens];
+    maintainers = with lib.maintainers; [ adamcstephens ];
   };
 }

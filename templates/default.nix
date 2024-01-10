@@ -1,4 +1,5 @@
-{...}: {
+{ ... }:
+{
   flake.templates = {
     default = {
       path = ./default;

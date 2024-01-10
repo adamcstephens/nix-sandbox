@@ -8,25 +8,27 @@
   makeTest,
   pkgs,
 }:
-makeTest {
-  name = "ydls";
+makeTest
+  {
+    name = "ydls";
 
-  nodes.machine = {...}: {
-    imports = [
-      flake.nixosModules.ydls
-    ];
+    nodes.machine =
+      { ... }:
+      {
+        imports = [ flake.nixosModules.ydls ];
 
-    services.ydls = {
-      enable = true;
-      package = flake.packages.${pkgs.system}.ydls;
-    };
-  };
+        services.ydls = {
+          enable = true;
+          package = flake.packages.${pkgs.system}.ydls;
+        };
+      };
 
-  testScript = ''
-    start_all()
-    machine.wait_for_unit("ydls.service")
-  '';
-} {
-  inherit pkgs;
-  inherit (pkgs) system;
-}
+    testScript = ''
+      start_all()
+      machine.wait_for_unit("ydls.service")
+    '';
+  }
+  {
+    inherit pkgs;
+    inherit (pkgs) system;
+  }

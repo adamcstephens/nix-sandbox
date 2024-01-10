@@ -19,15 +19,23 @@ buildGoModule {
 
   vendorHash = "sha256-4H862ViDhg0hFeeHE4uidNCocc4nGC//2CSWkKlH63U=";
 
-  ldflags = ["-s" "-w"];
+  ldflags = [
+    "-s"
+    "-w"
+  ];
 
-  buildInputs = [makeWrapper];
+  buildInputs = [ makeWrapper ];
 
   # tests need to find the config
   CONFIG = "/build/source/ydls.json";
 
   postInstall = ''
-    wrapProgram $out/bin/ydls --prefix PATH : ${lib.makeBinPath [ffmpeg yt-dlp]}
+    wrapProgram $out/bin/ydls --prefix PATH : ${
+      lib.makeBinPath [
+        ffmpeg
+        yt-dlp
+      ]
+    }
     install -D -m 0444 ydls.json $out/share/ydls/ydls.json
   '';
 
@@ -35,7 +43,7 @@ buildGoModule {
     description = "Youtube-dl HTTP download and transcode service";
     homepage = "https://github.com/wader/ydls";
     license = licenses.mit;
-    maintainers = with maintainers; [adamcstephens];
+    maintainers = with maintainers; [ adamcstephens ];
     mainProgram = "ydls";
   };
 }

@@ -18,7 +18,10 @@ buildGoModule {
 
   vendorHash = "sha256-TOKQZ4daEwXp5olLXHyOxoFItT26Xaa38P9t6c99M8I=";
 
-  ldflags = ["-s" "-w"];
+  ldflags = [
+    "-s"
+    "-w"
+  ];
   CGO_ENABLED = 1;
 
   buildInputs = [
@@ -30,6 +33,6 @@ buildGoModule {
     description = "A Matrix-iMessage puppeting bridge";
     homepage = "https://github.com/mautrix/imessage";
     license = licenses.agpl3Only;
-    maintainers = with maintainers; [adamcstephens];
+    maintainers = with maintainers; [ adamcstephens ];
   };
 }

@@ -21,12 +21,8 @@ stdenv.mkDerivation {
   dontPatch = true;
 
   strictDeps = true;
-  nativeBuildInputs = [
-    pkg-config
-  ];
-  buildInputs = [
-    libusb1
-  ];
+  nativeBuildInputs = [ pkg-config ];
+  buildInputs = [ libusb1 ];
 
   buildPhase = ''
     cd xmos_dfu
@@ -45,7 +41,7 @@ stdenv.mkDerivation {
       fullName = "XMOS Software License Agreement";
       url = "https://raw.githubusercontent.com/jdslabs/xmos_dfu/main/LICENSE.txt";
     };
-    maintainers = with maintainers; [adamcstephens];
+    maintainers = with maintainers; [ adamcstephens ];
     mainProgram = "xmosdfu";
   };
 }

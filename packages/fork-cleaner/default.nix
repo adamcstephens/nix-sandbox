@@ -1,6 +1,7 @@
-{ lib
-, buildGoModule
-, fetchFromGitHub
+{
+  lib,
+  buildGoModule,
+  fetchFromGitHub,
 }:
 
 buildGoModule rec {
@@ -16,7 +17,18 @@ buildGoModule rec {
 
   vendorHash = "sha256-yzS6SME2P9Guq4hQcY7Gyd9hrwi2ugIXDev69djdxU0=";
 
-  ldflags = [ "-s" "-w" "-X" "main.version=${version}" "-X" "main.commit=${src.rev}" "-X" "main.date=1970-01-01T00:00:00Z" "-X" "main.builtBy=goreleaser" ];
+  ldflags = [
+    "-s"
+    "-w"
+    "-X"
+    "main.version=${version}"
+    "-X"
+    "main.commit=${src.rev}"
+    "-X"
+    "main.date=1970-01-01T00:00:00Z"
+    "-X"
+    "main.builtBy=goreleaser"
+  ];
 
   meta = with lib; {
     description = "Quickly clean up unused forks on your github account";

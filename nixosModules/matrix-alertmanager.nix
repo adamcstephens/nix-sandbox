@@ -3,21 +3,23 @@
   lib,
   pkgs,
   ...
-}: let
+}:
+let
   cfg = config.services.prometheus.alertmanager.matrix;
-in {
+in
+{
   options.services.prometheus.alertmanager.matrix = {
     enable = lib.mkEnableOption "Enable and run the matrix-alertmanager service";
 
-    package = lib.mkPackageOptionMD pkgs "matrix-alertmanager" {
-      default = pkgs.matrix-alertmanager;
-    };
+    package = lib.mkPackageOptionMD pkgs "matrix-alertmanager" { default = pkgs.matrix-alertmanager; };
 
     environment = lib.mkOption {
       description = lib.mdDoc "Environment variables to be passed as configuration. See [example env file](https://github.com/jaywink/matrix-alertmanager/blob/master/.env.default)";
       type = lib.types.attrsOf lib.types.str;
-      default = {};
-      example = {MATRIX_USER = "@alertmanager:homeserver.tld";};
+      default = { };
+      example = {
+        MATRIX_USER = "@alertmanager:homeserver.tld";
+      };
     };
 
     environmentFile = lib.mkOption {
@@ -30,17 +32,18 @@ in {
   config = lib.mkIf cfg.enable {
     systemd.services.matrix-alertmanager = {
       description = "Alertmanager webhook events to Matrix";
-      after = ["network.target"];
-      wantedBy = ["multi-user.target"];
+      after = [ "network.target" ];
+      wantedBy = [ "multi-user.target" ];
 
-      environment =
-        {
-          NODE_CONFIG_DIR = "/var/lib/matrix-alertmanager/config";
-          NODE_ENV = "production";
-          NPM_CONFIG_CACHE = "/var/cache/matrix-alertmanager/.npm";
-        }
-        // cfg.environment;
-      path = [pkgs.bash pkgs.nodejs];
+      environment = {
+        NODE_CONFIG_DIR = "/var/lib/matrix-alertmanager/config";
+        NODE_ENV = "production";
+        NPM_CONFIG_CACHE = "/var/cache/matrix-alertmanager/.npm";
+      } // cfg.environment;
+      path = [
+        pkgs.bash
+        pkgs.nodejs
+      ];
       script = ''
         npm start
       '';

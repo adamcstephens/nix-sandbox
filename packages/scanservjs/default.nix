@@ -17,9 +17,9 @@ buildNpmPackage rec {
 
   npmDepsHash = "sha256-ZK1gbCDv+Dw713kt0dOIeqX7Hm4RfRzzS620u6vfIf0=";
 
-  nativeBuildInputs = [sane-frontends];
+  nativeBuildInputs = [ sane-frontends ];
 
-  npmPackFlags = ["--ignore-scripts"];
+  npmPackFlags = [ "--ignore-scripts" ];
 
   NODE_OPTIONS = "--openssl-legacy-provider";
 
@@ -27,7 +27,7 @@ buildNpmPackage rec {
     homepage = "https://github.com/sbs20/scanservjs";
     description = "";
     license = licenses.gpl2;
-    maintainers = with maintainers; [adamcstephens];
+    maintainers = with maintainers; [ adamcstephens ];
     platforms = platforms.linux;
   };
 }

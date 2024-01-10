@@ -25,8 +25,13 @@ stdenv.mkDerivation rec {
     hash = "sha256-bt+AbkYB9OcMLjaxHCF/TuAHdZbQC+MakDcXZcGZGWQ=";
   };
 
-  nativeBuildInputs = [makeWrapper];
-  buildInputs = [cups ghostscript dpkg a2ps];
+  nativeBuildInputs = [ makeWrapper ];
+  buildInputs = [
+    cups
+    ghostscript
+    dpkg
+    a2ps
+  ];
 
   dontUnpack = true;
 
@@ -54,12 +59,14 @@ stdenv.mkDerivation rec {
     ; do
       #substituteInPlace $f \
       wrapProgram $f \
-        --prefix PATH : ${lib.makeBinPath [
-      coreutils
-      ghostscript
-      gnugrep
-      gnused
-    ]}
+        --prefix PATH : ${
+          lib.makeBinPath [
+            coreutils
+            ghostscript
+            gnugrep
+            gnused
+          ]
+        }
     done
 
     mkdir -p $out/lib/cups/filter/
@@ -69,16 +76,26 @@ stdenv.mkDerivation rec {
     ln -s $out/opt/brother/Printers/HLL2370DW/cupswrapper/brother-HLL2370DW-cups-en.ppd $out/share/cups/model/
 
     wrapProgram $out/opt/brother/Printers/HLL2370DW/lpd/lpdfilter \
-      --prefix PATH ":" ${lib.makeBinPath [ghostscript a2ps file gnused gnugrep coreutils which]}
+      --prefix PATH ":" ${
+        lib.makeBinPath [
+          ghostscript
+          a2ps
+          file
+          gnused
+          gnugrep
+          coreutils
+          which
+        ]
+      }
   '';
 
   meta = with lib; {
     homepage = "http://www.brother.com/";
     description = "Brother HL-L2370DW combined print driver";
-    sourceProvenance = with sourceTypes; [binaryNativeCode];
+    sourceProvenance = with sourceTypes; [ binaryNativeCode ];
     # license = licenses.unfree;
-    platforms = ["x86_64-linux"];
+    platforms = [ "x86_64-linux" ];
     downloadPage = "http://support.brother.com/g/b/downloadlist.aspx?c=us_ot&lang=en&prod=hll2370dw_us&os=128";
-    maintainers = [maintainers.adamcstephens];
+    maintainers = [ maintainers.adamcstephens ];
   };
 }

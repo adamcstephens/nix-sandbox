@@ -1,4 +1,5 @@
-{...}: {
+{ ... }:
+{
   config.flake.nixosModules = {
     ble2mqtt = import ./ble2mqtt.nix;
     iguanair = import ./iguanair.nix;

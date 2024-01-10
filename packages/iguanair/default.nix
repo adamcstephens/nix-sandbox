@@ -20,9 +20,7 @@ stdenv.mkDerivation {
 
   sourceRoot = "source/software/usb_ir";
 
-  buildInputs = [
-    libusb1
-  ];
+  buildInputs = [ libusb1 ];
 
   nativeBuildInputs = [
     cmake
@@ -38,7 +36,5 @@ stdenv.mkDerivation {
     mv $out/lib64 $out/lib
   '';
 
-  patches = [
-    ./systemd.patch
-  ];
+  patches = [ ./systemd.patch ];
 }

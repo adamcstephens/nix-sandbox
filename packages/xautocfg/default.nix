@@ -31,6 +31,6 @@ gcc12Stdenv.mkDerivation rec {
     description = "Automatic keyboard repeat rate configuration for new keyboards";
     homepage = "https://github.com/SFTtech/xautocfg";
     license = licenses.gpl3;
-    maintainers = with maintainers; [adamcstephens];
+    maintainers = with maintainers; [ adamcstephens ];
   };
 }

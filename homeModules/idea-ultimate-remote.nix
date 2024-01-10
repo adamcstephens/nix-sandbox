@@ -4,15 +4,27 @@
   pkgs,
   ...
 }:
-with lib; let
+with lib;
+let
   cfg = config.services.idea-ultimate-remote;
 
   name = "idea-ultimate-remote";
 
-  mkStartScript = name:
+  mkStartScript =
+    name:
     pkgs.writeShellScript "${name}.sh" ''
       set -euo pipefail
-      PATH=${makeBinPath (with pkgs; [coreutils findutils inotify-tools patchelf gnused])}
+      PATH=${
+        makeBinPath (
+          with pkgs; [
+            coreutils
+            findutils
+            inotify-tools
+            patchelf
+            gnused
+          ]
+        )
+      }
       bin_dir=~/.cache/JetBrains/RemoteDev/dist/
 
       mkdir -p ~/.cache/JetBrains/RemoteDev/dist/
@@ -59,7 +71,8 @@ with lib; let
         esac
       done < <(inotifywait -r -m -q -e CREATE --include '^.*ideaIU[-[:digit:]\.]+(/plugins)?(/remote-dev-server)?(/bin)?$' --format '%w%f:%e' "$bin_dir")
     '';
-in {
+in
+{
   options = {
     services.idea-ultimate-remote = {
       enable = mkEnableOption "idea-ultimate-remote";
@@ -68,7 +81,7 @@ in {
 
   config = mkMerge [
     (mkIf cfg.enable {
-      home.packages = [];
+      home.packages = [ ];
 
       systemd.user.services.${name} = {
         Unit = {
@@ -86,7 +99,7 @@ in {
         };
 
         Install = {
-          WantedBy = ["default.target"];
+          WantedBy = [ "default.target" ];
         };
       };
     })

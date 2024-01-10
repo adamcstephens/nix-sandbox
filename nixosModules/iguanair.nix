@@ -4,9 +4,11 @@
   pkgs,
   ...
 }:
-with lib; let
+with lib;
+let
   cfg = config.services.igdaemon;
-in {
+in
+{
   options = {
     services.igdaemon = {
       enable = mkOption {
@@ -29,7 +31,7 @@ in {
   config = mkIf cfg.enable {
     systemd.services.igdaemon = {
       description = "iguanair daemon";
-      wantedBy = ["multi-user.target"];
+      wantedBy = [ "multi-user.target" ];
 
       serviceConfig = {
         User = "iguanair";
@@ -44,7 +46,7 @@ in {
         group = "iguanair";
         isSystemUser = true;
       };
-      groups.iguanair = {};
+      groups.iguanair = { };
     };
 
     services.udev.extraRules = ''

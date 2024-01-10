@@ -12,14 +12,14 @@ python3Packages.buildPythonApplication rec {
     hash = "sha256-B3jQEImfZn5vi2EWdcHp1DDD+CwiQ6xWw3DQSCxUrPg=";
   };
 
-  propagatedBuildInputs = [mopidy];
+  propagatedBuildInputs = [ mopidy ];
 
-  nativeCheckInputs = [python3Packages.pytestCheckHook];
+  nativeCheckInputs = [ python3Packages.pytestCheckHook ];
 
   meta = with lib; {
     homepage = "https://github.com/vitiko98/mopidy-qobuz";
     description = "Mopidy extension for controlling playback from MPD clients";
     license = lib.licenses.asl20;
-    maintainers = [maintainers.adamcstephens];
+    maintainers = [ maintainers.adamcstephens ];
   };
 }
