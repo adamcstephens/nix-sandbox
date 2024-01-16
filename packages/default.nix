@@ -14,7 +14,10 @@
   );
 
   flake.packages.x86_64-linux = withSystem "x86_64-linux" (
-    { pkgs, ... }: { cups-brother-hll2370dw = pkgs.callPackage ./cups-brother-hll2370dw { }; }
+    { pkgs, ... }:
+    {
+      cups-brother-hll2370dw = pkgs.callPackage ./cups-brother-hll2370dw { };
+    }
   );
 
   perSystem =
@@ -38,6 +41,7 @@
         firefox-profile-switcher-connector =
           pkgs.darwin.apple_sdk_11_0.callPackage ./firefox-profile-switcher-connector
             { inherit (pkgs.darwin.apple_sdk_11_0.frameworks) Security; };
+        fish = pkgs.callPackage ./fish { };
         fork-cleaner = pkgs.callPackage ./fork-cleaner { };
         gickup = pkgs.callPackage ./gickup { };
 
